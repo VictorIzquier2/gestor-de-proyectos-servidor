@@ -8,7 +8,7 @@ const app = express();
 // conectar a la base de datos
 conectarDB();
 
-{/*app.use((req,res,next) => {
+app.use((req,res,next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
@@ -18,7 +18,6 @@ conectarDB();
   res.setHeader('Access-Control-Allow-Headers', '*');
   next();
 });
-*/}
 
 // habilitar cors
 app.use(cors({
