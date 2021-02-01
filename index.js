@@ -8,7 +8,7 @@ const app = express();
 // conectar a la base de datos
 conectarDB();
 
-app.use((req,res,next) => {
+{/*app.use((req,res,next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
@@ -18,6 +18,7 @@ app.use((req,res,next) => {
   res.setHeader('Access-Control-Allow-Headers', '*');
   next();
 });
+*/}
 
 // habilitar cors
 app.use(cors({
@@ -31,7 +32,7 @@ app.use(express.json({
 }));
 
 // Puerto de la app
-const PORT = process.env.PORT || 3900;
+const port = process.env.port || 3900;
 
 // Importar rutas
 app.use('/api/usuarios', require('./routes/usuarios'));
@@ -40,6 +41,6 @@ app.use('/api/proyectos', require('./routes/proyectos'));
 app.use('/api/tareas', require('./routes/tareas'));
 
 //Ejecutar la app
-app.listen(PORT, () => {
-  console.log(`El servidor está funcionando en el puerto ${PORT}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`El servidor está funcionando en el puerto ${port}`);
 })
